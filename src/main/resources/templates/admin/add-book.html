@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #343a40;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            margin-top: 15px;
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+<h2>📘 Add New Book</h2>
+
+<form th:action="@{/admin/add-book}" th:object="${book}" method="post">
+    <label>📖 Title:</label>
+    <input type="text" th:field="*{title}" required />
+
+    <label>👤 Author:</label>
+    <input type="text" th:field="*{author}" required />
+
+    <label>💲 Price:</label>
+    <input type="number" step="0.01" th:field="*{price}" required />
+
+    <label>🏷️ Category:</label>
+    <input type="text" th:field="*{category}" required />
+
+    <label>📝 Description:</label>
+    <textarea th:field="*{description}" rows="4" required></textarea>
+
+    <button type="submit">➕ Add Book</button>
+</form>
+</body>
+</html>

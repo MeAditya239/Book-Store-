@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: #007bff;
+    color: white;
+    text-align: left;
+}
+
+/* ✅ Buttons */
+.btn, .btn-cart, .remove-btn, .logout-btn {
+    display: inline-block;
+    background: #28a745;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.btn:hover,
+.btn-cart:hover,
+.remove-btn:hover,
+.logout-btn:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+/* ❌ Remove Button Styling */
+.remove-btn {
+    background: #dc3545;
+}
+
+.remove-btn:hover {
+    background: #c82333;
+}
+
+/* 🛑 Logout Button Styling */
+.logout-btn {
+    background: #dc3545;
+    font-weight: bold;
+}
+
+.logout-btn:hover {
+    background: #c82333;
+}
+
+/* Link group spacing */
+.link-group {
+    margin-top: 20px;
+}
+
+/* Cart empty message */
+.cart-empty {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}

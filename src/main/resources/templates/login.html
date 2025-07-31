@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>📚 Book Store - Login</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/scripts.js}" defer></script>
+    <style>
+        body {
+    font-family: 'Segoe UI', sans-serif;
+    background: url('/img/bookstorebg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; /* ensures no unwanted scroll */
+        }
+
+
+        .login-box {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+
+        .login-box h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .login-btn {
+            background: #007bff;
+            color: white;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .login-btn:hover {
+            background: #0056b3;
+            transform: scale(1.02);
+        }
+
+        .error-msg {
+            color: red;
+            font-size: 0.9em;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .store-header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .emoji {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-box">
+    <div class="emoji">📚</div>
+    <div class="store-header">Welcome to Book Store</div>
+
+    <h2>🔐 Login</h2>
+
+    <form method="post" th:action="@{/login}">
+        <label>📱 Phone:</label>
+        <input type="text" name="username" placeholder="Enter phone number" required />
+
+        <label>🔑 Password:</label>
+        <input type="password" name="password" placeholder="Enter password" required />
+
+        <button type="submit" class="login-btn">Login</button>
+    </form>
+
+    <p class="error-msg" th:if="${param.error}">❌ Invalid phone or password</p>
+</div>
+
+</body>
+</html>

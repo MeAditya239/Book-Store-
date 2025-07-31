@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Browse Books</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<h2>📚 Browse Books</h2>
+
+<div class="link-group">
+    <a th:href="@{/user/dashboard}" class="btn">🏠 Dashboard</a>
+    <a th:href="@{/user/cart}" class="btn">🛒 View Cart</a>
+    <form th:action="@{/logout}" method="post" style="display: inline;">
+        <button type="submit" class="logout-btn">🚪 Logout</button>
+    </form>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>📖 Title</th>
+        <th>👤 Author</th>
+        <th>💲 Price</th>
+        <th>🏷️ Category</th>
+        <th>🛒 Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.price}"></td>
+        <td th:text="${book.category}"></td>
+        <td>
+            <a th:href="@{'/user/add-to-cart/' + ${book.id}}" class="btn-cart">Add to Cart</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

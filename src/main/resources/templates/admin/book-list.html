@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f5;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            box-shadow: 0 0 8px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        a {
+            margin: 0 5px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .add-btn {
+            background: #28a745;
+            color: white;
+            padding: 8px 14px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .add-btn:hover {
+            background: #218838;
+        }
+
+        .actions {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+
+<h2>📚 All Books</h2>
+
+<a class="add-btn" th:href="@{/admin/add-book}">➕ Add New Book</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>📖 Title</th>
+        <th>👤 Author</th>
+        <th>💲 Price</th>
+        <th>🏷️ Category</th>
+        <th>⚙️ Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.title}">Title</td>
+        <td th:text="${book.author}">Author</td>
+        <td th:text="${book.price}">Price</td>
+        <td th:text="${book.category}">Category</td>
+        <td class="actions">
+            <a th:href="@{'/admin/edit-book/' + ${book.id}}">✏️ Edit</a>
+            <a th:href="@{'/admin/delete-book/' + ${book.id}}" onclick="return confirm('Delete this book?')">🗑️ Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your Cart</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/scripts.js}" defer></script>
+</head>
+<body>
+
+<h2>🛒 Your Cart</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>📖 Title</th>
+        <th>👤 Author</th>
+        <th>💲 Price</th>
+        <th>🏷️ Category</th>
+        <th>🔢 Quantity</th>
+        <th>❌ Remove</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${cart}">
+        <td th:text="${item.book.title}"></td>
+        <td th:text="${item.book.author}"></td>
+        <td th:text="${item.book.price}"></td>
+        <td th:text="${item.book.category}"></td>
+        <td th:text="${item.quantity}"></td>
+        <td>
+            <a th:href="@{'/user/remove-from-cart/' + ${item.book.id}}"
+               class="remove-btn"
+               onclick="return confirmRemoval()">Remove</a>
+        </td>
+    </tr>
+    <tr th:if="${cart == null || cart.size() == 0}">
+        <td colspan="6">🪹 Your cart is empty.</td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="link-group">
+    <a th:href="@{/user/books}" class="btn">⬅️ Back to Book List</a>
+    <a th:href="@{/user/dashboard}" class="btn">🏠 Dashboard</a>
+    <form th:action="@{/logout}" method="post" style="display: inline;">
+        <button type="submit" class="logout-btn">🚪 Logout</button>
+    </form>
+</div>
+
+</body>
+</html>

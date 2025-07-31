@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<h2>👤 Welcome to User Dashboard</h2>
+
+<div class="link-group">
+    <a th:href="@{/user/books}" class="btn">📚 Browse Books</a>
+    <a th:href="@{/user/cart}" class="btn">🛒 View Cart</a>
+    <form th:action="@{/logout}" method="post" style="display: inline;">
+        <button type="submit" class="logout-btn">🚪 Logout</button>
+    </form>
+</div>
+
+</body>
+</html>
