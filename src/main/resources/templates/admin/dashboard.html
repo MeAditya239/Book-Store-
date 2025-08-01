@@ -2,9 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h2>📘 Welcome to Admin Dashboard</h2>
-<a th:href="@{/logout}">Logout</a>
+<div class="container">
+    <h2>📘 Welcome Admin</h2>
+
+    <div class="link-group">
+        <a th:href="@{/admin/books}" class="btn">📚 View Books</a>
+        <a th:href="@{/admin/add-book}" class="btn">➕ Add Book</a>
+        <form th:action="@{/logout}" method="post" style="display:inline;">
+            <button type="submit" class="btn logout-btn">🚪 Logout</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>
