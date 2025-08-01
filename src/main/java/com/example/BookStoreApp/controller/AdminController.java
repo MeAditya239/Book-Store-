@@ -68,10 +68,6 @@ public class AdminController {
         return "redirect:/admin/books";
     }
 
-// for debugging
-    @GetMapping("/test")
-    public String test() {
-        return "admin/book-list"; // Does it render now?
-    }
+
 
 }
