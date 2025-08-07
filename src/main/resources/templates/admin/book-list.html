@@ -6,7 +6,6 @@
 </head>
 <body>
 <h2>📚 Manage Books</h2>
-
 <div class="link-group">
     <a th:href="@{/admin/add-book}" class="btn">➕ Add New Book</a>
     <a th:href="@{/admin/dashboard}" class="btn">🏠 Dashboard</a>
@@ -14,7 +13,6 @@
         <button type="submit" class="btn logout-btn">🚪 Logout</button>
     </form>
 </div>
-
 <table>
     <thead>
     <tr>
@@ -22,6 +20,11 @@
         <th>👤 Author</th>
         <th>💲 Price</th>
         <th>🏷️ Category</th>
+        <th>📝 Created By</th>
+        <th>🕒 Created Date</th>
+        <th>✏️ Modified By</th>
+        <th>🕑 Modified Date</th>
+        <th>🔢 Version</th>
         <th>✏️ Edit</th>
         <th>❌ Delete</th>
     </tr>
@@ -32,6 +35,11 @@
         <td th:text="${book.author}"></td>
         <td th:text="${book.price}"></td>
         <td th:text="${book.category}"></td>
+        <td th:text="${book.createdBy}"></td>
+        <td th:text="${#temporals.format(book.createdDate, 'yyyy-MM-dd HH:mm')}"></td>
+        <td th:text="${book.lastModifiedBy}"></td>
+        <td th:text="${#temporals.format(book.lastModifiedDate, 'yyyy-MM-dd HH:mm')}"></td>
+        <td th:text="${book.version}"></td>
         <td><a th:href="@{'/admin/edit-book/' + ${book.id}}" class="btn-edit">Edit</a></td>
         <td>
             <a th:href="@{'/admin/delete-book/' + ${book.id}}" class="btn-delete"

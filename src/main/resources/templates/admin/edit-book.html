@@ -6,26 +6,23 @@
 </head>
 <body>
 <h2>✏️ Edit Book</h2>
-
 <form th:action="@{'/admin/update-book/' + ${book.id}}" th:object="${book}" method="post">
     <label>Title:</label>
     <input type="text" th:field="*{title}" required>
-
     <label>Author:</label>
     <input type="text" th:field="*{author}" required>
-
     <label>Price:</label>
     <input type="number" th:field="*{price}" required>
-
     <label>Category:</label>
     <input type="text" th:field="*{category}" required>
-
     <label>Description:</label>
     <textarea th:field="*{description}" required></textarea>
 
+    <!-- REQUIRED: Hidden version for optimistic locking -->
+    <input type="hidden" th:field="*{version}" />
+
     <button type="submit" class="btn">Update Book</button>
 </form>
-
 <div class="link-group">
     <a th:href="@{/admin/dashboard}" class="btn">🏠 Dashboard</a>
 </div>

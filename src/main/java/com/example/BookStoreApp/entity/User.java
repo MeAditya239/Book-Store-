@@ -19,7 +19,14 @@ public class User {
 
     private String role; // ADMIN or USER
 
+
+    @Version
+    private Long version;
+
     // Getters and Setters
+    // Getters and setters for version
+    public Long getVersion() { return version; }
+    public void setVersion(Long version) { this.version = version; }
     public Long getId() { return id; }
 
     public String getName() { return name; }
